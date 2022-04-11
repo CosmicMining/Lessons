@@ -7,7 +7,11 @@ function readFileA () {
     reader.addEventListener("loadend", () => {
         //get line 6 from file reader
         let line6 = reader.result.split("\n")[5];
-      document.getElementById("sf").innerHTML = line6;
+        if(line6 == "<input>") {
+          document.getElementById("sf").innerHTML = "You finished";
+        } else {
+          document.getElementById("sf").innerHTML = "That was close but not quite";
+        }
     });
     reader.readAsText(selected);
   }
